@@ -88,6 +88,15 @@ async def lsnote(e):
     await e.eor(get_string("flr_6"))
 
 
+@ultroid_cmd(pattern="getpbfi$")
+async def get_pack_file_bot_id(e):
+    wt = await e.get_reply_message()
+    if not wt:
+        return
+    m = pack_bot_file_id(wt.media)
+    await e.eor(f'`{m}`')
+
+
 async def filter_func(e):
     if isinstance(e.sender, User) and e.sender.bot:
         return
