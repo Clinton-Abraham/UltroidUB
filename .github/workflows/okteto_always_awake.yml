@@ -15,7 +15,7 @@ jobs:
       - name: "Activate Namespace"
         uses: okteto/namespace@latest
         with:
-          namespace: <put your git Username here>
+          namespace: X-Gorn
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
