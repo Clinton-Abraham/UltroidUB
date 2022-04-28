@@ -8,7 +8,7 @@ FROM theteamultroid/ultroid:main
 # set timezone
 ENV TZ=Asia/Kolkata
 
-ARG REPO=https://github.com/TeamUltroid/Ultroid.git
+ARG REPO=https://github.com/X-Gorn/Ultroid.git
 ARG DIR=/root/TeamUltroid
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
