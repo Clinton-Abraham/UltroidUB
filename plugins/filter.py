@@ -19,6 +19,7 @@
 
 import os
 import re
+from asyncio import sleep
 
 from pyUltroid.dB.filter_db import add_filter, get_filter, list_filter, rem_filter
 from pyUltroid.functions.tools import create_tl_btn, format_btn, get_msg_button
@@ -78,7 +79,6 @@ async def rf(e):
     rem_filter(int(chat), wrd)
     await e.eor(get_string("flr_5").format(wrd))
 
-
 @ultroid_cmd(pattern="listfilter$")
 async def lsnote(e):
     x = list_filter(e.chat_id)
@@ -86,7 +86,7 @@ async def lsnote(e):
         sd = "Filters Found In This Chats Are\n\n"
         return await e.eor(sd + x)
     await e.eor(get_string("flr_6"))
-
+    
 
 @ultroid_cmd(pattern="getpbfi$")
 async def get_pack_file_bot_id(e):
@@ -100,6 +100,8 @@ async def get_pack_file_bot_id(e):
 async def filter_func(e):
     if isinstance(e.sender, User) and e.sender.bot:
         return
+    return_or_not = random.choice([True, False, True, False, True, False, False, False])
+    random_time = random.choice([1, 1.5, 3.5, 2.3, 3.4, 1.2, 1.3, 4.6, 2.3, 4.5, 3.4, 3.4, 3.4, 3.5, 2.4])
     xx = (e.text).lower()
     chat = e.chat_id
     x = get_filter(chat)
@@ -111,9 +113,13 @@ async def filter_func(e):
                 if k:
                     msg = k["msg"]
                     media = k["media"]
+                    if not return_or_not:
+                        return
                     if k.get("button"):
                         btn = create_tl_btn(k["button"])
+                        await sleep(random_time)
                         return await something(e, msg, media, btn)
+                    await sleep(random_time)
                     await e.reply(msg, file=media)
 
 
