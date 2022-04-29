@@ -19,4 +19,4 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: Ultroid
+          name: UltroidUB
