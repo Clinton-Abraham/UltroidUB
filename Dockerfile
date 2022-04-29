@@ -6,10 +6,10 @@
 FROM theteamultroid/ultroid:main
 
 # set timezone
-ENV TZ=Asia/Kolkata
+ENV TZ=Asia/Jayapura
 
-ARG REPO=https://github.com/X-Gorn/Ultroid.git
-ARG DIR=/root/TeamUltroid
+ARG REPO=https://github.com/X-Gorn/UltroidUB.git
+ARG DIR=/root/TeamUltroidUB
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
