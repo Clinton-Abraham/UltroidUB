@@ -17,6 +17,7 @@
     list all filters.
 """
 
+import random
 import os
 import re
 from asyncio import sleep
@@ -100,7 +101,6 @@ async def get_pack_file_bot_id(e):
 async def filter_func(e):
     if isinstance(e.sender, User) and e.sender.bot:
         return
-    return_or_not = random.choice([True, False, True, False, True, False, False, False])
     random_time = random.choice([1, 1.5, 3.5, 2.3, 3.4, 1.2, 1.3, 4.6, 2.3, 4.5, 3.4, 3.4, 3.4, 3.5, 2.4])
     xx = (e.text).lower()
     chat = e.chat_id
@@ -113,8 +113,6 @@ async def filter_func(e):
                 if k:
                     msg = k["msg"]
                     media = k["media"]
-                    if not return_or_not:
-                        return
                     if k.get("button"):
                         btn = create_tl_btn(k["button"])
                         await sleep(random_time)
