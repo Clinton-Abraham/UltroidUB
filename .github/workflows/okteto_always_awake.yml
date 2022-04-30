@@ -15,8 +15,8 @@ jobs:
       - name: "Activate Namespace"
         uses: okteto/namespace@latest
         with:
-          namespace: X-Gorn
+          namespace: x-gorn
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: UltroidUB
+          name: ultroidub
